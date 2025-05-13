@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Triple-T Cab Booking</title>
+<style>
+  body {
+    background: linear-gradient(135deg, #74ebd5, #ACB6E5);
+    font-family: 'Segoe UI', sans-serif;
+    padding: 20px;
+  }
+  .container {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    max-width: 420px;
+    margin: auto;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  }
+  input, select {
+    background: #f5f5f5;
+    border: none;
+    margin: 12px 0;
+    padding: 14px;
+    border-radius: 8px;
+    width: 100%;
+    font-size: 15px;
+  }
+  button {
+    background: #25D366;
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    width: 100%;
+    margin-top: 15px;
+  }
+  button:hover {
+    background: #1da851;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h2>Cab Booking Form</h2>
+  <input type="text" id="name" placeholder="Your Name">
+   <input type="text" id="mobile" placeholder="Mobile Number">
+  <input type="text" id="pickup" placeholder="Pickup Location">
+  <input type="text" id="drop" placeholder="Drop Location">
+  <select id="seater">
+    <option value="">Select Cab Type</option>
+    <option value="Sedan">Sedan</option>
+    <option value="SUV">SUV</option>
+    <option value="Innova">Innova</option>
+    <option value="Other">Other</option>
+    
+  </select>
+  <input type="date" id="date">
+  <input type="time" id="time">
+  <button onclick="sendWhatsApp()">Book Now</button>
+</div>
+
+<script>
+  function sendWhatsApp() {
+    const name = document.getElementById("name").value.trim();
+    const mobile = document.getElementById("mobile").value.trim();
+    const pickup = document.getElementById("pickup").value.trim();
+    const drop = document.getElementById("drop").value.trim();
+    const seater = document.getElementById("seater").value.trim();
+    const date = document.getElementById("date").value;
+    const time = document.getElementById("time").value;
+
+    if (!name || !mobile || !pickup || !drop || !seater || !date || !time) {
+      alert("Please fill in all fields.");
+      return;
+    }
+
+    const message = `*Triple-T Cab Booking Request*%0A` +
+                    `Name: ${name}%0A` +
+                    `Mobile: ${mobile}%0A` +
+                    `Pickup: ${pickup}%0A` +
+                    `Drop: ${drop}%0A` +
+                    `Cab Type: ${seater}%0A` +
+                    `Date: ${date}%0A` +
+                    `Time: ${time}`;
+
+    const url = `https://wa.me/918390825097?text=${message}`;
+    window.open(url, '_blank');
+  }
+</script>
+
+</body>
+</html>
