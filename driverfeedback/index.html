@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Driver Feedback Form - Triple-T Cab</title>
+  <style>
+    body {
+      background: linear-gradient(135deg, #74ebd5, #ACB6E5);
+      font-family: 'Segoe UI', sans-serif;
+      padding: 20px;
+    }
+    .container {
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      max-width: 420px;
+      margin: auto;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    }
+    input, select, textarea {
+      background: #f5f5f5;
+      border: none;
+      margin: 12px 0;
+      padding: 14px;
+      border-radius: 8px;
+      width: 100%;
+      font-size: 15px;
+    }
+    button {
+      background: #25D366;
+      padding: 15px;
+      border: none;
+      border-radius: 10px;
+      color: white;
+      font-weight: bold;
+      font-size: 16px;
+      width: 100%;
+      margin-top: 15px;
+    }
+    button:hover {
+      background: #1da851;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h2>Driver Feedback Form</h2>
+  <input type="text" id="name" placeholder="Your Name">
+  <input type="text" id="mobile" placeholder="Mobile Number">
+  <input type="text" id="driver" placeholder="Driver's Name">
+  <input type="date" id="rideDate">
+  <select id="rating">
+    <option value="">Rate the Driver</option>
+    <option value="1 - Very Poor">1 - Very Poor</option>
+    <option value="2 - Poor">2 - Poor</option>
+    <option value="3 - Average">3 - Average</option>
+    <option value="4 - Good">4 - Good</option>
+    <option value="5 - Excellent">5 - Excellent</option>
+  </select>
+  <textarea id="feedback" rows="4" placeholder="Write your feedback here..."></textarea>
+  <button onclick="sendWhatsApp()">Submit Feedback</button>
+</div>
+
+<script>
+  function sendWhatsApp() {
+    const name = document.getElementById("name").value.trim();
+    const mobile = document.getElementById("mobile").value.trim();
+    const driver = document.getElementById("driver").value.trim();
+    const rideDate = document.getElementById("rideDate").value;
+    const rating = document.getElementById("rating").value;
+    const feedback = document.getElementById("feedback").value.trim();
+
+    if (!name || !mobile || !driver || !rideDate || !rating || !feedback) {
+      alert("Please fill in all fields.");
+      return;
+    }
+
+    const message = `*Triple-T Driver Feedback*%0A` +
+                    `Name: ${name}%0A` +
+                    `Mobile: ${mobile}%0A` +
+                    `Driver: ${driver}%0A` +
+                    `Ride Date: ${rideDate}%0A` +
+                    `Rating: ${rating}%0A` +
+                    `Feedback: ${feedback}`;
+
+    const url = `https://wa.me/918390825097?text=${message}`;
+    window.open(url, '_blank');
+  }
+</script>
+
+</body>
+</html>
