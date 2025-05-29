@@ -347,24 +347,24 @@
       </div>
    
   </section>
-      <!-- Other Routes Section -->
-  <section class="routes-list">
-    <div class="container">
-      <h2>Other Popular Routes</h2>
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item"><a href="../pune-to-shirdi-cab">Pune to Shirdi Cab</a></li>
-        <li class="list-group-item"><a href="../pune-to-mahabaleshwar-cab">Pune to Mahabaleshwar Cab</a></li>
-        <li class="list-group-item"><a href="../pune-to-lonavala-cab">Pune to Lonavala Cab</a></li>
-        <li class="list-group-item"><a href="../pune-to-nashik-cab">Pune to Nashik Cab</a></li>
-        <li class="list-group-item"><a href="../pune-to-kolhapur-cab">Pune to Kolhapur Cab</a></li>
-        <li class="list-group-item"><a href="../pune-to-goa-cab">Pune to Goa Cab</a></li>
-        <li class="list-group-item"><a href="../pune-to-solapur-cab">Pune to Solapur Cab</a></li>
-        <li class="list-group-item"><a href="../pune-to-satara-cab">Pune to Satara Cab</a></li>
-        <li class="list-group-item"><a href="../pune-to-aurangabad-cab">Pune to Aurangabad Cab</a></li>
-        <li class="list-group-item"><a href="../pune-to-ahmednagar-cab">Pune to Ahmednagar Cab</a></li>
-      </ul>
-    </div>
-  </section>
+    <!-- Other Routes Section -->
+<section class="routes-list">
+  <div class="container">
+    <h2>Other Popular Routes</h2>
+    <ul id="routesList" class="list-group list-group-flush">
+      <li class="list-group-item"><a href="../pune-to-shirdi-cab">Pune to Shirdi Cab</a></li>
+      <li class="list-group-item"><a href="../pune-to-mahabaleshwar-cab">Pune to Mahabaleshwar Cab</a></li>
+      <li class="list-group-item"><a href="../pune-to-lonavala-cab">Pune to Lonavala Cab</a></li>
+      <li class="list-group-item"><a href="../pune-to-nashik-cab">Pune to Nashik Cab</a></li>
+      <li class="list-group-item"><a href="../pune-to-kolhapur-cab">Pune to Kolhapur Cab</a></li>
+      <li class="list-group-item"><a href="../pune-to-goa-cab">Pune to Goa Cab</a></li>
+      <li class="list-group-item"><a href="../pune-to-solapur-cab">Pune to Solapur Cab</a></li>
+      <li class="list-group-item"><a href="../pune-to-satara-cab">Pune to Satara Cab</a></li>
+      <li class="list-group-item"><a href="../pune-to-aurangabad-cab">Pune to Aurangabad Cab</a></li>
+      <li class="list-group-item"><a href="../pune-to-ahmednagar-cab">Pune to Ahmednagar Cab</a></li>
+    </ul>
+  </div>
+</section>
 
     <!-- About Us Section -->
 
@@ -437,8 +437,12 @@
   </div>
   </div>
 </footer>
-  <div class="text-center mt-3">
-      <p class="mb-0">© 2024 TripleTcab. All Rights Reserved.</p>
+  <div class="text-center mt-4">
+  <p class="mb-1">
+    <a href="../privacy-policy" class="text-decoration-none me-3">Privacy Policy</a> |
+    <a href="../terms-and-conditions" class="text-decoration-none">Terms & Conditions</a>
+  </p>
+  <p class="mb-0 text-muted">© 2024 TripleTcab. All Rights Reserved.</p>
     </div>
    
 <a href="tel:8390825091" class="f-call-button" aria-label="Click to call TripleTcab">
@@ -462,6 +466,19 @@
   },
   "serviceType": "Outstation Cab, Airport Drop, Local Tour"
 }
+</script>
+<script>
+  // Function to shuffle elements
+  function shuffleRoutes() {
+    const list = document.getElementById("routesList");
+    const items = Array.from(list.children);
+    const shuffled = items.sort(() => Math.random() - 0.5);
+    list.innerHTML = ''; // Clear list
+    shuffled.forEach(item => list.appendChild(item)); // Re-append in random order
+  }
+
+  // Call shuffle on page load
+  window.addEventListener("DOMContentLoaded", shuffleRoutes);
 </script>
 </body>
 </html>
